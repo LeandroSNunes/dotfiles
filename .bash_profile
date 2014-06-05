@@ -21,6 +21,10 @@ parse_git_branch() {
 ######### MYSQL ###########
 export PATH="/usr/local/mysql/bin:$PATH"
 
+######### LESS ###########
+export LESSOPEN="| src-hilite-lesspipe.sh %s"
+export LESS=" -R "
+
 ######### ALIASES ###########
 
 alias ..="cd .."
