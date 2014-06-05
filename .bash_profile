@@ -3,7 +3,6 @@
 export PATH=$PATH:$HOME/.rvm/bin
 
 ######### RUBI GC ###########
-
 export RUBY_GC_MALLOC_LIMIT=90000000
 export RUBY_FREE_MIN=200000
 
@@ -20,25 +19,29 @@ parse_git_branch() {
 
 ######### MYSQL ###########
 export PATH="/usr/local/mysql/bin:$PATH"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 ######### LESS ###########
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 
-######### ALIASES ###########
-
-alias ..="cd .."
-alias la="ls -lah"
-alias pa="ps aux"
 
 ######### GREP ###########
-
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;37'
 alias grep='grep --color=auto' # Always highlight grep search term
 
+
 ######### OCULTA COMANDOS INICIADOS COM ESPACO NO HISTORICO ###########
 export HISTCONTROL=ignorespace
+
+
+######### ALIASES ###########
+alias ..="cd .."
+alias la="ls -lah"
+alias pa="ps aux"
+alias myips="ifconfig | grep 0xffffff00 | cut -d ' ' -f 2 && curl -l http://curlmyip.com/"
 
 
  #If not running interactively, don't do anything
