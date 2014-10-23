@@ -9,7 +9,7 @@ export EDITOR=vim PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 ######### GIT ###########
-parse_git_branch() {
+function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
