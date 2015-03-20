@@ -26,8 +26,8 @@ FORBIDDEN = [
   /binding\.pry/,        # pry debugging code
   /binding\.remote_pry/, # ''
   /save_and_open_page/,  # Launchy debugging code
-  /debugger/             # Ruby debugging code
-  /focus: true/          # Focus to RSpec
+  /debugger/,             # Ruby debugging code
+  /\bfocus: true\b/          # Focus to RSpec
 ]
 
 USER = ENV["USER"]
