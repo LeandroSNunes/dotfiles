@@ -1,0 +1,15 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+
+Style/Encoding:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+
+Metrics/LineLength:
+  Max: 150
