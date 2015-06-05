@@ -27,6 +27,7 @@ export HISTCONTROL=ignorespace # commands started with room not located in the h
 
 ######### ALIASES ###########
 alias myips="ifconfig | grep 0xffffff00 | cut -d ' ' -f 2 && curl -l http://curlmyip.com/"
+alias clean_branch="git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
 
 [ -z "$PS1" ] && return # If not running interactively, don't do anything
 
