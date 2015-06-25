@@ -6,8 +6,8 @@ export RUBY_FREE_MIN=200000
 export EDITOR=vim PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
 ######### CURL ###########
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
-
+#export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+export SSL_CERT_FILE=/usr/local/etc/openssl/certs
 ######### GIT ###########
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
