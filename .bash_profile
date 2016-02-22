@@ -1,3 +1,4 @@
+ulimit -n 1024
 ######### RUBI GC ###########
 export RUBY_GC_MALLOC_LIMIT=90000000
 export RUBY_FREE_MIN=200000
@@ -7,7 +8,8 @@ export EDITOR=vim PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
 ######### CURL ###########
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
-export SSL_CERT_FILE=/usr/local/etc/openssl/certs
+#export SSL_CERT_FILE=/usr/local/etc/openssl/certs
+#export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
 ######### GIT ###########
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -59,6 +61,8 @@ function prompt {
   local CYAN="\[\033[0;36m\]"
   local WHITE="\[\033[0;37m\]"
   local WHITEBOLD="\[\033[1;37m\]"
-  export PS1="${PURPLE}\h ${CYAN}\w ${WHITE}\$(parse_git_branch) ${YELLOW}\n$ \[\e[m\]\[\e[m\]"
+  export PS1="${RED}\h ${GREEN}\w ${WHITE}\$(parse_git_branch) ${YELLOW}\n$ \[\e[m\]\[\e[m\]"
 }
 prompt
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
