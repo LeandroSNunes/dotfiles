@@ -1,7 +1,9 @@
 ulimit -n 1024
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 ######### RUBI GC ###########
 export RUBY_GC_MALLOC_LIMIT=90000000
-export RUBY_FREE_MIN=200000
+export RUBY_GC_HEAP_FREE_SLOTS=200000
 
 ######### VIM ###########
 export EDITOR=vim PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
