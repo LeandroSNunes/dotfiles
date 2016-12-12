@@ -1,6 +1,5 @@
 autoconf
 automake
-apple-gcc42
 bash
 git
 libtool
