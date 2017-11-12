@@ -36,3 +36,4 @@ source-highlight
 pkg-config
 libevent
 yarn
+cmake
