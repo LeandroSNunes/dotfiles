@@ -9,6 +9,7 @@ export RUBY_GC_HEAP_FREE_SLOTS=200000
 export EDITOR=vim PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
 ######### CURL ###########
+export PATH=/usr/local/opt/openssl/bin:$PATH
 #export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 #export SSL_CERT_FILE=/usr/local/etc/openssl/certs
 #export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
@@ -33,6 +34,7 @@ export HISTCONTROL=ignorespace # commands started with room not located in the h
 alias myips="ifconfig | grep 0xffffff00 | cut -d ' ' -f 2 && curl -l http://curlmyip.com/"
 alias clean_branch="git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
 alias assh="ssh -i ~/.ssh/leandrosnunes-keypair.pem"
+alias ascp="scp -i ~/.ssh/leandrosnunes-keypair.pem"
 
 [ -z "$PS1" ] && return # If not running interactively, don't do anything
 
