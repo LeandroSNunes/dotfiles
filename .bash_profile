@@ -1,6 +1,10 @@
 ulimit -n 1024
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+
 ######### RUBI GC ###########
 export RUBY_GC_MALLOC_LIMIT=90000000
 export RUBY_GC_HEAP_FREE_SLOTS=200000
@@ -10,9 +14,7 @@ export EDITOR=vim PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
 ######### CURL ###########
 export PATH=/usr/local/opt/openssl/bin:$PATH
-#export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
-#export SSL_CERT_FILE=/usr/local/etc/openssl/certs
-#export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
+
 ######### GIT ###########
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -33,8 +35,8 @@ export HISTCONTROL=ignorespace # commands started with room not located in the h
 ######### ALIASES ###########
 alias myips="ifconfig | grep 0xffffff00 | cut -d ' ' -f 2 && curl -l http://curlmyip.com/"
 alias clean_branch="git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
-alias assh="ssh -i ~/.ssh/leandrosnunes-keypair.pem"
-alias ascp="scp -i ~/.ssh/leandrosnunes-keypair.pem"
+alias assh="ssh -i ~/.ssh/eventplace-keypair.pem"
+alias ascp="scp -i ~/.ssh/eventplace-keypair.pem"
 
 [ -z "$PS1" ] && return # If not running interactively, don't do anything
 
