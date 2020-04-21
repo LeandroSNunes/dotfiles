@@ -3,7 +3,9 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 ######### RUBI GC ###########
 export RUBY_GC_MALLOC_LIMIT=90000000
@@ -15,9 +17,14 @@ export EDITOR=vim PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 ######### CURL ###########
 export PATH=/usr/local/opt/openssl/bin:$PATH
 
-######### GIT ###########
+######### FUNCTIONS ###########
 function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+new-tag() {
+  local folder=$(basename `pwd`)
+  echo "$folder-`date '+%Y%m%d%H%M%S'`"
 }
 
 ######### LESS ###########
@@ -35,8 +42,9 @@ export HISTCONTROL=ignorespace # commands started with room not located in the h
 ######### ALIASES ###########
 alias myips="ifconfig | grep 0xffffff00 | cut -d ' ' -f 2 && curl -l http://curlmyip.com/"
 alias clean_branch="git branch --merged | grep -v \"\*\" | xargs -n 1 git branch -d"
-alias assh="ssh -i ~/.ssh/eventplace-keypair.pem"
-alias ascp="scp -i ~/.ssh/eventplace-keypair.pem"
+alias destroy_branchs="git branch --list | grep -v \"\*\" | xargs -n 1 git branch -D"
+alias slack="slack-term --config ~/.config/slack-term/config"
+
 
 [ -z "$PS1" ] && return # If not running interactively, don't do anything
 
